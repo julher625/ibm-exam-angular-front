@@ -1,12 +1,16 @@
+
 <form id="myForm">
     <label for="documento">Número de documento:</label>
-    <input type="text" id="documento" name="documento" required>
+    <input type="text" id="documento" name="documento" required
+    (focus)="getInputValue($event)">
+
   
     <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
+    <input type="text" id="nombre" name="nombre" required
+    (focus)="getInputValue($event)">
   
     <input type="hidden" id="documentoCifrado" name="documentoCifrado">
   
     <input type="submit" value="Enviar">
-  </form>
-  
+</form>
+<script src="./script.js"></script>
