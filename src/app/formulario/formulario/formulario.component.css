@@ -1,0 +1,40 @@
+/* Estilo para el formulario */
+#myForm {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Estilo para las etiquetas */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Estilo para los campos de entrada */
+  input[type="text"],
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Estilo para el campo oculto */
+  input[type="hidden"] {
+    display: none;
+  }
+  
+  /* Estilo para el botón de envío */
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  
