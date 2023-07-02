@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CryptographyService } from 'src/app/shared/services/cryptography/cryptography.service';
 import { KeyService } from 'src/app/shared/services/api/key/key.service';
-import { IKeyResponse } from 'src/app/shared/models/ikey-response';
 import { ScenarioService } from 'src/app/shared/services/api/scenario/scenario.service';
 
 @Component({
