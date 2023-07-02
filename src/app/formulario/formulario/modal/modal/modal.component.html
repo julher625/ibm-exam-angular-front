@@ -1,13 +1,9 @@
-   <h1 mat-dialog-title>Mensaje</h1>
-   <div mat-dialog-content>
-     {{data.mensaje}}
-     <i class="fas fa-check success-icon" [ngClass]="{'green-icon': data.exitoso, 'red-icon': !data.exitoso}"></i>
-   </div>
-   <div mat-dialog-actions>
-     <button mat-button mat-dialog-close (click)="closeDialog()">Aceptar</button>
-   </div>
-   
-  
-  
-  
-  
+<h1 mat-dialog-title>Mensaje</h1>
+<div mat-dialog-content>
+  {{data.mensaje}}
+  <i class="fas fa-check success-icon" *ngIf="data.exitoso" style="color: green;"></i>
+  <i class="fas fa-times error-icon" *ngIf="!data.exitoso" style="color: red;"></i>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="closeDialog()">Aceptar</button>
+</div>
