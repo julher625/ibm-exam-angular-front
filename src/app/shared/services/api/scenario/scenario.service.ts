@@ -21,30 +21,28 @@ export class ScenarioService {
   setScenario(scenario:string, publicKey:string, privateKey:string){
     let encryptedScenario;
 
-    console.log(publicKey.replace("\r\n",""));
-    this.cryptography.encryptData(scenario, publicKey.replace("\r\n",""))
+    this.cryptography.encryptData(scenario, publicKey)
     .then((data:string)=>{
       encryptedScenario = data;
       const json = {
         escenario: encryptedScenario
       };
-      console.log(json);
+
+      const keys = {
+        publicKey: publicKey,
+        privateKey: privateKey
+      }
       const req = this._http.post<string>(
         this.baseUrl,
         json
         ).subscribe({
         next: (response) => {
-          console.log("================================")
-
-          console.log(response)
           this.cryptography.decryptData(response,privateKey).then((responseData:string)=>{
             
+            console.log(responseData)
             let dataJson = JSON.parse(responseData)
-            console.log("================================")
-            console.log(scenario);
-            console.log(dataJson)
-            console.log(response);
-            console.log("================================")
+
+            console.log(dataJson);
             if(dataJson.flujo){
               this.router.navigate([`../${dataJson.flujo}`])
             }else{
