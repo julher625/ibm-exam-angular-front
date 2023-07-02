@@ -42,7 +42,6 @@ export class CryptographyService {
         return res;
       })
       
-        console.log(decrypted)
 
       return decrypted
     } catch (error) {

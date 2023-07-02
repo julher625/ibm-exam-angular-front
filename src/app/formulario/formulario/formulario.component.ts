@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { KeyService } from 'src/app/shared/services/api/key/key.service';
 import { ScenarioService } from 'src/app/shared/services/api/scenario/scenario.service';
+import {MatDialog} from '@angular/material/dialog';
+import { ModalComponent } from './modal/modal/modal.component';
+import { IMessage } from 'src/app/shared/models/i-message';
 declare function encriptarCampo(nomVar: string, nomVarCrypto: string, visibles: any): void;
 
 
@@ -40,9 +43,6 @@ export class FormularioComponent {
 
     if((event.target as HTMLInputElement).id == "nombre"){
       this.encriptarNumeroDocumento()
-      if(this.documentoEnmascarado){
-        // this.update('documento',this.documentoEnmascarado)
-      }
 
     }else if((event.target as HTMLInputElement).id == "documento"){
       if(this.documento){
@@ -62,17 +62,15 @@ export class FormularioComponent {
     this.keyService.getKeys().subscribe({
       next: (res) => {
         this.key = res;//JSON.parse(res);
-        this.scenarioService.setScenario(json,  this.key.publicKey,this.key.privateKey)
-        
+        let data= this.scenarioService.setScenario(json,  this.key.publicKey,this.key.privateKey)
+        // let dataJson = JSON.parse(data)
       },
       error: err => console.log(err)
     })
+    this.documento = undefined
 
-
-
-    
-
-    
   }
+
+
 
 }
