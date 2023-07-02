@@ -1,5 +1,4 @@
-
-<form id="myForm">
+<form id="myForm"  (submit)="submitForm($event)">
     <label for="documento">Número de documento:</label>
     <input type="text" id="documento" name="documento" required
     (focus)="getInputValue($event)">

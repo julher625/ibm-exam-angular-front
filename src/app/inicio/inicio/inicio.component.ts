@@ -11,7 +11,7 @@ import { ScenarioService } from 'src/app/shared/services/api/scenario/scenario.s
 })
 export class InicioComponent {
 
-  private key: string="";
+  private key: any
 
   constructor(
     public cryptographyService:CryptographyService,
@@ -23,8 +23,8 @@ export class InicioComponent {
 
     this.keyService.getKeys().subscribe({
       next: (res) => {
-        this.key = res;
-        this.scenarioService.setScenario('{"flujo":"inicio"}', this.key)
+        this.key = res;//JSON.parse(res);
+        this.scenarioService.setScenario('{"flujo":"inicio"}', this.key.publicKey,this.key.privateKey)
       },
       error: err => console.log(err)
     })
